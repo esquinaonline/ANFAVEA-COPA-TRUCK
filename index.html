@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Copa Truck Be8 BeVant 2026. Anfavea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --asfalto:#0D1720;
+  --asfalto-2:#15222E;
+  --noite:#1C2B3A;
+  --papel:#EDF0F2;
+  --papel-2:#E2E7EB;
+  --grafite:#2A343D;
+  --cinza:#6E7A85;
+  --linha:#C9D1D8;
+  --farol:#F2B01E;
+  --farol-escuro:#C98C00;
+  --campo:#3E9A62;
+  --alerta:#D9482B;
+  --branco:#FFFFFF;
+  --tinta:#121A22;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ color-scheme: dark; --papel:#E9EDF0; --papel-2:#DDE3E8; }
+}
+:root[data-theme="dark"]{ color-scheme: dark; --papel:#E9EDF0; --papel-2:#DDE3E8; }
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);scroll-snap-type:y proximity}
+body{
+  font-family:"Source Serif 4", Georgia, serif;
+  font-size:1.0625rem;line-height:1.65;
+  color:var(--tinta);background:var(--asfalto);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,.disp{font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-variation-settings:"wdth" 100;line-height:1.02;letter-spacing:-.02em}
+h1{font-weight:800;font-size:clamp(2.8rem,8.5vw,7.2rem);font-variation-settings:"wdth" 92}
+h2{font-weight:700;font-size:clamp(2rem,4.6vw,3.8rem)}
+h3{font-weight:600;font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.15}
+p{max-width:62ch}
+a{color:inherit}
+.kicker{font-family:"Archivo",sans-serif;font-weight:500;font-size:.95rem;letter-spacing:.01em;color:var(--farol);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
+.kicker::before{content:"";width:34px;height:3px;background:currentColor;border-radius:2px}
+.light .kicker{color:var(--farol-escuro)}
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--farol);z-index:50;transition:width .12s linear}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--asfalto)}
+#nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:10px}
+#nav button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--farol);background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s;position:relative}
+#nav button.on{background:var(--farol);transform:scale(1.35)}
+#nav button span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font:500 .75rem "Archivo",sans-serif;color:var(--branco);background:rgba(13,23,32,.9);padding:4px 8px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s}
+#nav button:hover span,#nav button:focus-visible span{opacity:1}
+#nav button:focus-visible{outline:2px solid var(--farol);outline-offset:3px}
+@media (max-width:760px){#nav{display:none}}
+/* chapters */
+.ch{min-height:100svh;scroll-snap-align:start;position:relative;display:flex;align-items:center;padding:clamp(4rem,9vh,7rem) clamp(1.25rem,6vw,6rem);overflow:hidden}
+.dark{background:var(--asfalto);color:var(--papel)}
+.dark.alt{background:var(--asfalto-2)}
+.light{background:var(--papel);color:var(--tinta)}
+.light.alt{background:var(--papel-2)}
+.wrap{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto}
+.grid{display:grid;gap:clamp(1.5rem,4vw,4rem);align-items:center}
+.g2{grid-template-columns:1.05fr .95fr}
+.g3{grid-template-columns:repeat(3,1fr);align-items:stretch}
+.g4{grid-template-columns:repeat(4,1fr);align-items:stretch}
+@media (max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.lead{font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.5}
+.muted{color:var(--cinza)}
+.dark .muted{color:#9AA7B3}
+.note{font-size:.9rem;line-height:1.5;color:var(--cinza)}
+.dark .note{color:#8C99A6}
+.src{font-family:"Archivo",sans-serif;font-size:.74rem;font-weight:500;color:var(--cinza);margin-top:.5rem}
+.dark .src{color:#7F8C99}
+/* reveal variants */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.l{transform:translateX(-50px)}
+.rv.r{transform:translateX(50px)}
+.rv.z{transform:scale(.92)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}.d5{transition-delay:.6s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation-duration:.001s!important}html{scroll-behavior:auto}}
+/* HERO */
+#hero{padding-top:0;padding-bottom:0}
+#hero .road{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+#hero .wrap{text-align:center;padding-top:10vh;display:flex;flex-direction:column;align-items:center}
+#hero h1{max-width:14ch;font-size:clamp(2.2rem,6vw,5rem);text-shadow:0 10px 40px rgba(0,0,0,.6)}
+#hero .sub{margin:1.6rem auto 0;font-size:clamp(1.1rem,1.7vw,1.35rem);max-width:52ch;color:#D9E0E6}
+#hero .meta{margin-top:2.6rem;display:flex;justify-content:center;gap:2.2rem;flex-wrap:wrap;font-family:"Archivo",sans-serif;font-size:.85rem;color:#9AA7B3}
+#hero .meta b{display:block;color:var(--papel);font-weight:600;font-size:.95rem}
+.cue{position:absolute;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:3;font:500 .78rem "Archivo",sans-serif;color:#9AA7B3;display:flex;flex-direction:column;align-items:center;gap:8px}
+.cue i{width:1px;height:46px;background:linear-gradient(var(--farol),transparent);display:block;animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
+.dash{stroke-dasharray:40 60;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-100}}
+.glow{animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:.95}}
+/* stat blocks */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.6rem 2rem;margin-top:2.4rem}
+.stat .n{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(2.4rem,5vw,4rem);line-height:1;letter-spacing:-.03em;font-variation-settings:"wdth" 85;color:var(--farol)}
+.light .stat .n{color:var(--tinta)}
+.stat .n small{font-size:.45em;font-weight:600;margin-left:.15em;letter-spacing:0}
+.stat .l{font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:500;margin-top:.5rem;line-height:1.3;max-width:22ch}
+.stat .s{font-size:.78rem;color:var(--cinza);margin-top:.3rem}
+.dark .stat .s{color:#7F8C99}
+/* three reasons */
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
+@media (max-width:900px){.reasons{grid-template-columns:1fr}}
+.reason{border-top:3px solid var(--farol-escuro);padding-top:1.1rem}
+.reason h3{margin-bottom:.6rem}
+.reason p{font-size:1rem}
+.reason .ico{width:40px;height:40px;margin-bottom:1rem;color:var(--farol-escuro)}
+/* standings */
+.board{list-style:none;display:flex;flex-direction:column;gap:12px}
+.board li{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center;font-family:"Archivo",sans-serif}
+.board .pos{font-weight:700;color:#9AA7B3;font-size:.9rem;text-align:right}
+.board .bar{height:40px;border-radius:4px;background:linear-gradient(90deg,var(--farol),var(--farol-escuro));width:0;transition:width 1.3s cubic-bezier(.2,.7,.2,1);display:flex;align-items:center;padding-left:14px;font-weight:700;color:var(--asfalto);white-space:nowrap;overflow:hidden}
+.board .bar.ind{background:linear-gradient(90deg,#3A4A5A,#2C3945);color:var(--papel)}
+.board .bar.none{background:repeating-linear-gradient(135deg,#223040 0 8px,#1A2531 8px 16px);color:#9AA7B3;border:1px dashed #3A4A5A}
+.board .tag{font-size:.74rem;font-weight:500;color:#9AA7B3;white-space:nowrap}
+.legend{display:flex;gap:1.4rem;margin-top:1.2rem;font:500 .78rem "Archivo",sans-serif;color:#9AA7B3;flex-wrap:wrap}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+/* route */
+.route{width:100%;height:auto}
+.route .line{stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 2.2s ease}
+.in .route .line{stroke-dashoffset:0}
+.route .node{opacity:0;transform:scale(.3);transform-origin:center;transform-box:fill-box;transition:opacity .4s,transform .5s cubic-bezier(.3,1.4,.5,1)}
+.in .route .node{opacity:1;transform:scale(1)}
+/* stakeholder ring */
+.ring{position:relative;width:min(100%,460px);aspect-ratio:1;margin:0 auto}
+.ring .core{position:absolute;inset:32%;border-radius:50%;background:var(--farol);display:flex;align-items:center;justify-content:center;text-align:center;font:700 1rem "Archivo",sans-serif;color:var(--asfalto);padding:1rem;line-height:1.15;box-shadow:0 0 0 18px rgba(242,176,30,.1),0 0 0 36px rgba(242,176,30,.05)}
+.ring .sat{position:absolute;width:112px;margin:-56px 0 0 -56px;text-align:center;font:500 .8rem "Archivo",sans-serif;color:var(--papel);cursor:pointer;transition:transform .3s}
+.ring .sat b{display:block;width:54px;height:54px;border-radius:50%;background:var(--noite);border:1.5px solid #3A4A5A;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s}
+.ring .sat svg{width:24px;height:24px;color:var(--farol)}
+.ring .sat:hover,.ring .sat.on{transform:scale(1.08)}
+.ring .sat:hover b,.ring .sat.on b{background:#2A3B4C;border-color:var(--farol)}
+.ring .sat:focus-visible{outline:2px solid var(--farol);outline-offset:4px;border-radius:8px}
+#satText{min-height:5.4rem;margin-top:1.5rem;padding:1.1rem 1.2rem;border-left:3px solid var(--farol);background:rgba(255,255,255,.04);transition:opacity .25s}
+#satText b{font-family:"Archivo",sans-serif;display:block;margin-bottom:.3rem}
+/* evidence columns */
+.ev{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media (max-width:900px){.ev{grid-template-columns:1fr}}
+.ev .col{padding:1.6rem;border:1px solid var(--linha);border-radius:6px;background:var(--branco)}
+.ev .col.b{border-color:#C7DCCF;background:#F3F8F4}
+.ev h3{display:flex;gap:.6rem;align-items:center;margin-bottom:1rem}
+.ev h3 svg{width:22px;height:22px;flex:none}
+.ev ul{list-style:none;display:grid;gap:.8rem}
+.ev li{padding-left:1.1rem;position:relative;font-size:.98rem}
+.ev li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--alerta)}
+.ev .b li::before{background:var(--campo)}
+/* toggle */
+.toggle{display:inline-flex;border:1.5px solid var(--farol);border-radius:999px;padding:4px;margin:2rem 0 1.4rem;font:600 .9rem "Archivo",sans-serif}
+.toggle button{border:0;background:transparent;color:var(--papel);padding:.6rem 1.4rem;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.toggle button.on{background:var(--farol);color:var(--asfalto)}
+.toggle button:focus-visible{outline:2px solid var(--farol);outline-offset:2px}
+.panes{position:relative;min-height:300px}
+.pane{position:absolute;inset:0;opacity:0;transform:translateX(40px);transition:opacity .5s,transform .5s;pointer-events:none}
+.pane.on{opacity:1;transform:none;pointer-events:auto;position:relative}
+.pane ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem 1.6rem}
+@media (max-width:700px){.pane ul{grid-template-columns:1fr}}
+.pane li{display:flex;gap:.8rem;align-items:flex-start;font-size:1rem}
+.pane li svg{width:22px;height:22px;flex:none;margin-top:.15rem;color:var(--farol)}
+.pane.via li svg{color:var(--alerta)}
+.light .toggle button{color:var(--tinta)}
+.light .pane li svg{color:var(--farol-escuro)}
+.light .pane.via li svg{color:var(--alerta)}
+/* proportions */
+.prop{display:grid;grid-template-columns:repeat(2,1fr);gap:2.4rem}
+@media (max-width:800px){.prop{grid-template-columns:1fr}}
+.pbar{display:flex;height:54px;border-radius:4px;overflow:hidden;background:#D7DEE4;margin:.8rem 0 .6rem;font:700 .9rem "Archivo",sans-serif}
+.pbar span{display:flex;align-items:center;justify-content:center;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1);white-space:nowrap;overflow:hidden}
+.pbar .f{background:var(--grafite);color:var(--papel)}
+.pbar .m{background:var(--alerta);color:#fff}
+.pbar .r{background:#B9C4CE;color:var(--tinta)}
+/* program cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.2rem}
+@media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
+.card{background:var(--noite);border:1px solid #2C3B4A;padding:1.5rem;border-radius:6px;display:flex;flex-direction:column;gap:.7rem;position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--farol);transform:scaleX(0);transform-origin:left;transition:transform .6s ease .4s}
+.in .card::after{transform:scaleX(1)}
+.card .brand{font:800 1.3rem "Archivo",sans-serif;letter-spacing:-.01em}
+.card .yr{font:500 .8rem "Archivo",sans-serif;color:var(--farol)}
+.card p{font-size:.95rem;color:#C8D1DA}
+/* fuel */
+.fuel{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:center}
+@media (max-width:900px){.fuel{grid-template-columns:1fr}}
+.drop{width:min(100%,300px);margin:0 auto;display:block}
+.drop .lvl{transform:translateY(100%);transition:transform 2s cubic-bezier(.2,.7,.2,1) .2s}
+.in .drop .lvl{transform:translateY(0)}
+.guard{margin-top:1.6rem;padding:1.1rem 1.3rem;border:1.5px solid var(--farol-escuro);border-radius:6px;background:#FBF3DD;font-size:.95rem}
+.guard b{font-family:"Archivo",sans-serif}
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2rem}
+@media (max-width:800px){.pillars{grid-template-columns:1fr}}
+.pillar{display:grid;grid-template-columns:52px 1fr;gap:1rem;padding:1.3rem;background:rgba(255,255,255,.04);border:1px solid #2C3B4A;border-radius:6px}
+.pillar svg{width:40px;height:40px;color:var(--farol)}
+.pillar h3{margin-bottom:.4rem}
+.pillar p{font-size:.96rem;color:#C8D1DA}
+/* tracks */
+.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.2rem}
+@media (max-width:900px){.tracks{grid-template-columns:1fr}}
+.track{background:var(--branco);border-radius:6px;padding:1.6rem;border:1px solid var(--linha);position:relative;transition:transform .35s,box-shadow .35s}
+.track:hover{transform:translateY(-6px);box-shadow:0 20px 40px -24px rgba(13,23,32,.45)}
+.track .ico{width:48px;height:48px;border-radius:8px;background:var(--asfalto);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.track .ico svg{width:26px;height:26px;color:var(--farol)}
+.track h3{margin-bottom:.6rem}
+.track p{font-size:.96rem}
+.track ul{list-style:none;margin-top:.9rem;display:grid;gap:.4rem;font-size:.92rem}
+.track li::before{content:"";display:inline-block;width:14px;height:2px;background:var(--farol-escuro);margin-right:.6rem;vertical-align:middle}
+.rules{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@media (max-width:900px){.rules{grid-template-columns:repeat(2,1fr)}}
+.rule{font:600 .95rem "Archivo",sans-serif;padding:1rem;border-left:3px solid var(--asfalto);background:var(--papel-2);line-height:1.3}
+/* accordion */
+.acc{display:grid;gap:.6rem;margin-top:1.8rem}
+.acc details{border:1px solid #2C3B4A;border-radius:6px;background:var(--noite);overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;padding:1.1rem 1.3rem;font:600 1.05rem "Archivo",sans-serif;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-weight:400;font-size:1.6rem;color:var(--farol);transition:transform .3s;flex:none}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc summary:focus-visible{outline:2px solid var(--farol);outline-offset:-2px}
+.acc .body{padding:0 1.3rem 1.3rem;color:#C8D1DA;font-size:.98rem;border-top:1px solid #2C3B4A;padding-top:1rem;animation:open .4s ease}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.acc .body b{color:var(--papel);font-family:"Archivo",sans-serif;display:block;margin-bottom:.3rem;font-weight:600}
+/* close */
+#fim{text-align:center}
+#fim h2{font-size:clamp(2.2rem,6vw,5rem);max-width:16ch;margin:0 auto 1.4rem}
+#fim .lead{margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem;text-align:left}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+.step{padding:1.1rem;border-top:2px solid var(--farol);font-size:.92rem}
+.step b{display:block;font:700 .95rem "Archivo",sans-serif;margin-bottom:.3rem}
+.sig{margin-top:3.4rem;font:600 1.1rem "Archivo",sans-serif;color:var(--farol)}
+/* sources */
+#fontes{min-height:auto;padding-top:4rem;padding-bottom:5rem}
+.srcs{columns:3;column-gap:2rem;font-size:.8rem;line-height:1.45;color:#B6C0CA;margin-top:1.4rem}
+@media (max-width:900px){.srcs{columns:2}}
+@media (max-width:600px){.srcs{columns:1}}
+.srcs li{break-inside:avoid;margin-bottom:.45rem;padding-left:2.2rem;position:relative;list-style:none}
+.srcs li span{position:absolute;left:0;font:600 .78rem "Archivo",sans-serif;color:var(--farol)}
+/* decorative background shapes */
+.bgnum{position:absolute;right:-2vw;bottom:-4vh;font:900 clamp(10rem,28vw,24rem) "Archivo",sans-serif;font-variation-settings:"wdth" 80;letter-spacing:-.06em;line-height:1;opacity:.045;user-select:none;pointer-events:none;z-index:1}
+.light .bgnum{opacity:.06}
+.stripe{position:absolute;left:0;right:0;height:14px;background:repeating-linear-gradient(90deg,var(--farol) 0 60px,transparent 60px 110px);opacity:.55;z-index:1}
+.stripe.top{top:0}.stripe.bot{bottom:0}
+.hairline{width:100%;height:1px;background:var(--linha);margin:2rem 0}
+.dark .hairline{background:#2C3B4A}
+.badge{display:inline-block;font:600 .74rem "Archivo",sans-serif;padding:.25rem .6rem;border-radius:999px;background:rgba(242,176,30,.15);color:var(--farol);margin-left:.5rem;vertical-align:middle}
+.light .badge{background:rgba(201,140,0,.14);color:var(--farol-escuro)}
+.truckart{width:100%;max-width:520px;height:auto;display:block}
+.truckart .wheel{animation:spin 2.4s linear infinite;transform-origin:center;transform-box:fill-box}
+@keyframes spin{to{transform:rotate(360deg)}}
+.truckart .shine{animation:shine 2.6s ease-in-out infinite}
+@keyframes shine{0%,100%{opacity:.25}50%{opacity:.9}}
+</style>
+</head>
+<body>
+<div id="progress" role="presentation"></div>
+<nav id="nav" aria-label="Capítulos"></nav>
+
+<!-- ========== HERO ========== -->
+<section class="ch dark" id="hero" data-title="Abertura">
+  <svg class="road" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0D1720"/><stop offset="1" stop-color="#1C2B3A"/></linearGradient>
+      <linearGradient id="asph" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2733"/><stop offset="1" stop-color="#0B131B"/></linearGradient>
+      <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F2B01E" stop-opacity=".9"/><stop offset="1" stop-color="#F2B01E" stop-opacity="0"/></radialGradient>
+      <radialGradient id="hl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF4D6" stop-opacity=".95"/><stop offset=".3" stop-color="#F2B01E" stop-opacity=".35"/><stop offset="1" stop-color="#F2B01E" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#sky)"/>
+    <circle cx="800" cy="400" r="260" fill="url(#sun)" class="glow"/>
+    <polygon points="0,900 1600,900 860,400 740,400" fill="url(#asph)"/>
+    <line x1="700" y1="400" x2="-200" y2="900" stroke="#F2B01E" stroke-width="3" opacity=".5"/>
+    <line x1="900" y1="400" x2="1800" y2="900" stroke="#F2B01E" stroke-width="3" opacity=".5"/>
+    <line x1="800" y1="400" x2="800" y2="900" stroke="#EDF0F2" stroke-width="5" class="dash" opacity=".85"/>
+    <circle cx="800" cy="420" r="150" fill="url(#hl)" class="glow"/>
+    <line x1="0" y1="400" x2="1600" y2="400" stroke="#2A3B4C" stroke-width="1"/>
+    <rect x="0" y="880" width="1600" height="20" fill="#0B131B"/>
+  </svg>
+  <div class="wrap">
+    <div class="rv in" style="font:600 .95rem 'Archivo',sans-serif;letter-spacing:.12em;color:var(--farol);margin-bottom:1.2rem">ANFAVEA</div>
+    <h1 class="rv in">Copa Truck Be8 BeVant 2026</h1>
+    <p class="sub rv in d2">Por que o evento é importante para aumentar a exposição de marca, o envolvimento institucional, a agenda de segurança viária e, principalmente, a pauta ESG (biocombustíveis).</p>
+    <div class="meta rv in d3">
+      <div><b style="color:var(--farol)">Nove etapas, nove estados, 40 caminhões</b></div>
+    </div>
+  </div>
+  <div class="cue"><span>Role para seguir</span><i></i></div>
+</section>
+
+<!-- ========== 3. O ATIVO ========== -->
+<section class="ch light alt" id="ativo" data-title="O ativo">
+  <div class="wrap">
+    <div class="grid g2">
+      <div>
+        <div class="kicker rv">O ativo</div>
+        <h2 class="rv">Nove etapas, nove estados, um grid inteiro movido a biocombustível.</h2>
+        <p class="lead rv d1" style="margin-top:1.2rem">Lançada em 2017 como sucessora da Fórmula Truck, a Copa Truck chega a 2026 com a temporada mais extensa da sua história, de março a novembro, e com os 40 caminhões do grid rodando com 100% de biocombustível. A Be8 detém o naming da categoria.</p>
+        <p class="rv d2" style="margin-top:1rem">É um evento popular, com ingressos a partir de R$ 30, e já é usado por fornecedores do setor: a Prometeon é parceira e fornecedora oficial de pneus desde 2024; a Dana patrocina há cinco anos.</p>
+        <div class="src rv d2">Fontes [1][3][15][16][18][19]. Público de Interlagos 2026 ainda sem balanço final; não citado.</div>
+      </div>
+      <div class="rv z d1">
+        <svg class="route" viewBox="0 0 520 420" aria-label="Nove etapas ligadas por uma rota">
+          <path class="line" d="M60 350 C 90 300, 140 320, 160 270 S 230 190, 260 230 S 320 300, 360 250 S 400 150, 440 170 S 470 90, 450 60" fill="none" stroke="#C98C00" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#121A22" font-family="Archivo,sans-serif" font-size="12" font-weight="600">
+            <g class="node"><circle cx="60" cy="350" r="11" fill="#F2B01E"/><text x="60" y="354" text-anchor="middle">1</text></g>
+            <g class="node" style="transition-delay:.2s"><circle cx="120" cy="305" r="11" fill="#F2B01E"/><text x="120" y="309" text-anchor="middle">2</text></g>
+            <g class="node" style="transition-delay:.4s"><circle cx="160" cy="270" r="11" fill="#F2B01E"/><text x="160" y="274" text-anchor="middle">3</text></g>
+            <g class="node" style="transition-delay:.6s"><circle cx="215" cy="205" r="11" fill="#F2B01E"/><text x="215" y="209" text-anchor="middle">4</text></g>
+            <g class="node" style="transition-delay:.8s"><circle cx="260" cy="230" r="11" fill="#F2B01E"/><text x="260" y="234" text-anchor="middle">5</text></g>
+            <g class="node" style="transition-delay:1s"><circle cx="318" cy="290" r="11" fill="#F2B01E"/><text x="318" y="294" text-anchor="middle">6</text></g>
+            <g class="node" style="transition-delay:1.2s"><circle cx="360" cy="250" r="11" fill="#F2B01E"/><text x="360" y="254" text-anchor="middle">7</text></g>
+            <g class="node" style="transition-delay:1.4s"><circle cx="420" cy="160" r="11" fill="#F2B01E"/><text x="420" y="164" text-anchor="middle">8</text></g>
+            <g class="node" style="transition-delay:1.6s"><circle cx="450" cy="60" r="11" fill="#F2B01E"/><text x="450" y="64" text-anchor="middle">9</text></g>
+          </g>
+          <text x="60" y="395" font-family="Archivo,sans-serif" font-size="12" fill="#6E7A85">Março</text>
+          <text x="420" y="40" font-family="Archivo,sans-serif" font-size="12" fill="#6E7A85">Novembro</text>
+        </svg>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat rv d1"><div class="n" data-count="9">0</div><div class="l">etapas em nove estados</div><div class="s">inédito na categoria [3]</div></div>
+      <div class="stat rv d2"><div class="n" data-count="40">0</div><div class="l">caminhões com biocombustível em todas as etapas</div><div class="s">Be8 BeVant, 100% renovável [1]</div></div>
+      <div class="stat rv d3"><div class="n"><span data-count="43">0</span><small>mil</small></div><div class="l">pessoas em Interlagos num domingo</div><div class="s">público recorde, 2024 [16]</div></div>
+      <div class="stat rv d4"><div class="n"><small style="margin:0 .1em 0 0">R$</small><span data-count="30">0</span></div><div class="l">ingresso inicial</div><div class="s">evento de público popular [15]</div></div>
+      <div class="stat rv d5"><div class="n"><span data-count="2">0</span><small>mi+</small></div><div class="l">inscritos no canal que transmite a temporada</div><div class="s">Acelerados; grade de TV a confirmar [3][18]</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. O CAMINHONEIRO E OS PÚBLICOS ========== -->
+<section class="ch dark alt" id="publicos" data-title="Públicos">
+  <div class="wrap grid g2">
+    <div>
+      <div class="kicker rv">Mapa de públicos</div>
+      <h2 class="rv">A plataforma reúne, no mesmo lugar, todos os públicos com quem o setor precisa conversar.</h2>
+      <p class="lead rv d1" style="margin-top:1.2rem">O rodoviário movimenta 64,85% das cargas do país. O caminhoneiro autônomo trabalha em média 25 dias por mês, em jornadas de 14 horas, passando 16 dias seguidos longe de casa. A relação do brasileiro com o caminhão é afetiva e cotidiana.</p>
+      <p class="rv d2" style="margin-top:1rem">Em estratégia de comunicação, o valor de um evento não está no entretenimento. Está em quem ele reúne. Toque nos públicos ao lado.</p>
+      <div id="satText" class="rv d2"><b>Caminhoneiro autônomo</b>Público primário. Está no autódromo e na transmissão por escolha própria, em um contexto de orgulho profissional. É o momento certo para falar de descanso, saúde e renovação de frota.</div>
+      <div class="src rv d3">Fontes [26][27]. Pesquisa CNTA com amostra por conveniência.</div>
+    </div>
+    <div class="rv z d1">
+      <div class="ring" id="ring">
+        <div class="core">Copa Truck como ponto de encontro</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 1. RESUMO EXECUTIVO ========== -->
+<section class="ch light" id="resumo" data-title="Resumo executivo">
+  <div class="stripe top"></div>
+  <div class="wrap">
+    <div class="kicker rv">Resumo executivo</div>
+    <h2 class="rv">A Anfavea participa como entidade, com regras de conteúdo e neutralidade entre as associadas. A sua adesão completa esse desenho.</h2>
+    <p class="lead rv d1" style="margin-top:1.4rem">O setor automotivo já está na Copa Truck. Está lá de forma desigual, sem narrativa própria e sem controle sobre a mensagem. A entrada da Anfavea muda isso: transforma a maior plataforma de público do transporte pesado em um canal setorial de segurança viária e de validação técnica de combustível renovável.</p>
+    <div class="reasons">
+      <div class="reason rv d1">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17h18M5 17V9l3-4h8l3 4v8"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg>
+        <h3>O setor já está na pista</h3>
+        <p>Três associadas correm com equipe oficial. Volvo e Scania correm como independentes. O que falta não é presença: é uma voz do setor sobre o que acontece ali.</p>
+      </div>
+      <div class="reason rv d2">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Segurança é o argumento a favor</h3>
+        <p>O risco de mídia de velocidade existe, é conhecido e depende do enquadramento do conteúdo. A resposta madura é escrever as regras, não ficar de fora.</p>
+      </div>
+      <div class="reason rv d3">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/><path d="M9 15a3 3 0 0 0 3 3"/></svg>
+        <h3>O combustível do grid é a pauta da Anfavea</h3>
+        <p>Quarenta caminhões rodam com 100% de biocombustível drop-in em nove etapas. É um laboratório público de validação técnica, coerente com a postura da entidade de testar antes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. QUEM FALA PELO SETOR ========== -->
+<section class="ch dark" id="grid" data-title="Quem está no grid">
+  <div class="bgnum">2026</div>
+  <div class="wrap grid g2">
+    <div>
+      <div class="kicker rv">Share of voice na categoria</div>
+      <h2 class="rv">Hoje, quem fala pelo setor na Copa Truck são as equipes de fábrica.</h2>
+      <p class="lead rv d1" style="margin-top:1.2rem">Na tabela de montadoras de 2026, a Iveco lidera, seguida de Mercedes-Benz e Volkswagen-MAN. Scania e Volvo ocupam as últimas posições, correndo como independentes. A DAF não aparece em nenhum grid.</p>
+      <p class="rv d2" style="margin-top:1rem">Em planejamento de comunicação, isso tem nome: a vitrine existe e já está ocupada por três concorrentes. Quem está fora não deixa de ser associado ao caminhão de corrida. Apenas não participa da narrativa.</p>
+      <p class="rv d3" style="margin-top:1rem"><strong>Consequência para o desenho:</strong> a participação da Anfavea precisa ser neutra e desvinculada do campeonato de marcas. Recurso associativo não financia a vitrine de quem tem equipe oficial.</p>
+      <div class="src rv d3">Fontes [3][4][15]. Posições na tabela antes da etapa de Cuiabá, julho de 2026.</div>
+    </div>
+    <div class="rv r d1">
+      <ol class="board" id="board">
+        <li><span class="pos">1</span><div class="bar" data-w="100">Iveco</div><span class="tag">equipe oficial</span></li>
+        <li><span class="pos">2</span><div class="bar" data-w="86">Mercedes-Benz</div><span class="tag">equipe oficial</span></li>
+        <li><span class="pos">3</span><div class="bar" data-w="74">Volkswagen-MAN</div><span class="tag">equipe oficial</span></li>
+        <li><span class="pos">4</span><div class="bar ind" data-w="38">Scania</div><span class="tag">independente</span></li>
+        <li><span class="pos">5</span><div class="bar ind" data-w="30">Volvo</div><span class="tag">independente</span></li>
+        <li><span class="pos">&nbsp;</span><div class="bar none" data-w="100">DAF</div><span class="tag">ausente do grid</span></li>
+      </ol>
+      <div class="legend"><span><i style="background:var(--farol)"></i>Com equipe de fábrica</span><span><i style="background:#3A4A5A"></i>Correndo como independente</span><span><i style="background:#223040;border:1px dashed #3A4A5A"></i>Sem presença</span></div>
+      <p class="note" style="margin-top:1rem">Ordem entre Scania e Volvo ilustrativa: a fonte registra as duas nas últimas posições. A Scania já foi campeã da categoria, em 2018, com Roberval Andrade [20].</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. PISTA x VIA PÚBLICA ========== -->
+<section class="ch light" id="pista" data-title="Pista e via pública">
+  <div class="bgnum" style="font-size:clamp(7rem,18vw,16rem)">≠</div>
+  <div class="wrap">
+    <div class="kicker rv">Separar os dois mundos</div>
+    <h2 class="rv">A pista é um ambiente controlado. A estrada é onde o setor realmente perde.</h2>
+    <p class="lead rv d1" style="margin-top:1.2rem">As causas dos sinistros com caminhão são estruturais: fadiga, sono, saúde e frota antiga. Nenhuma delas tem origem em um autódromo. Todas elas são temas que o setor já sabe comunicar.</p>
+    <div class="toggle rv d1" role="tablist">
+      <button class="on" role="tab" aria-selected="true" data-pane="p1">Pista controlada</button>
+      <button role="tab" aria-selected="false" data-pane="p2">Via pública</button>
+    </div>
+    <div class="panes rv d2">
+      <div class="pane on" id="p1">
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v10H4z"/><path d="M8 7V4h8v3"/></svg><span>Circuito fechado, sem terceiros na via, com sinalização e equipes de resgate presentes.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Pilotos profissionais e caminhões preparados sob regulamento técnico, com inspeção.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg><span>Safety Truck na própria categoria: o Iveco S-Way já cumpre esse papel [13].</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M12 3v18"/></svg><span>Espaço onde a mensagem é controlável, por contrato, por quem patrocina.</span></li>
+        </ul>
+      </div>
+      <div class="pane via" id="p2">
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01M10.3 3.9L2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>Caminhões são cerca de 5% da frota, mas responderam por 47% das mortes em rodovias federais em 2021 [23].</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Em 2024, veículos de grande porte estiveram em 53% das mortes nessas rodovias [24].</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><span>Saúde física e emocional dos motoristas respondeu por quase 30% dos acidentes em dez anos [25].</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17h18M5 17V9l3-4h8l3 4v8"/></svg><span>O caminhão de 22 anos, alvo do programa Move Brasil, responde por mais da metade das mortes em rodovias federais.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. ONDE O SETOR PERDE ========== -->
+<section class="ch light alt" id="estrada" data-title="O que mata na estrada">
+  <div class="wrap">
+    <div class="kicker rv">Onde a mensagem precisa chegar</div>
+    <h2 class="rv">Quem precisa ouvir falar de segurança está na arquibancada, não na pista.</h2>
+    <div class="prop" style="margin-top:2rem">
+      <div class="rv l d1">
+        <h3>Participação dos caminhões</h3>
+        <div class="pbar"><span class="f" data-w="5">5%</span><span class="r" data-w="95">da frota</span></div>
+        <div class="pbar"><span class="m" data-w="47">47%</span><span class="r" data-w="53">das mortes em rodovias federais, 2021</span></div>
+        <div class="src">Anuário PRF 2021, via Portal do Trânsito [23]</div>
+      </div>
+      <div class="rv r d2">
+        <h3>Causa estrutural, não cultural</h3>
+        <div class="pbar"><span class="m" data-w="30">30%</span><span class="r" data-w="70">dos acidentes ligados à saúde física e emocional do motorista</span></div>
+        <div class="pbar"><span class="m" data-w="53">53%</span><span class="r" data-w="47">das mortes em 2024 com veículos de grande porte</span></div>
+        <div class="src">Abramet com dados da PRF [25]; PRF 2024 [24]</div>
+      </div>
+    </div>
+    <div class="hairline rv d2"></div>
+    <div class="grid g2 rv d3">
+      <p class="lead">Esses números explicam a sensibilidade das marcas. E justificam a conclusão oposta à da objeção: o setor precisa falar com o caminhoneiro onde ele está, com a atenção dele conquistada, e não em peças institucionais que ele não vê.</p>
+      <p>A Copa Truck é o único evento nacional em que o caminhoneiro, o transportador, o governo, o agro e a imprensa especializada estão no mesmo lugar, com uma pauta única: o caminhão. Deixar a plataforma sem mensagem de segurança é a opção menos segura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. OS OBJETORES JÁ FAZEM ISSO ========== -->
+<section class="ch dark alt" id="programas" data-title="Repertório das marcas">
+  <div class="wrap">
+    <div class="kicker rv">Coerência com o que as marcas já fazem</div>
+    <h2 class="rv">O evento não propõe mudanças de posicionamento das marcas. Propõe levar o que elas já fazem para uma plataforma setorial.</h2>
+    <div class="cards">
+      <div class="card rv d1"><span class="yr">Desde 1987</span><span class="brand">Volvo</span><p>Programa Volvo de Segurança no Trânsito, alinhado desde 2014 à visão Zero Acidentes do grupo. Quase quatro décadas de pedagogia viária no Brasil.</p><span class="src">[11]</span></div>
+      <div class="card rv d2"><span class="yr">Competição entre motoristas</span><span class="brand">Scania</span><p>A Scania Driver Competitions tem objetivo declarado de valorizar a profissão, incentivar o treinamento e promover segurança nas estradas. É o formato que propomos.</p><span class="src">[12]</span></div>
+      <div class="card rv d3"><span class="yr">Na própria Copa Truck</span><span class="brand">Iveco</span><p>O S-Way é o Safety Truck da competição. Na campanha de segurança viária da FIA, a Iveco aparece como apoiadora oficial.</p><span class="src">[13][14]</span></div>
+      <div class="card rv d4"><span class="yr">Precedente internacional</span><span class="brand">FIA</span><p>Na Action for Road Safety, promotores, equipes e pilotos exibem a campanha em corridas, carros, caminhões e capacetes. Modelo direto de ativação.</p><span class="src">[14]</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 9. COMBUSTÍVEL ========== -->
+<section class="ch light" id="combustivel" data-title="Combustível renovável">
+  <div class="wrap fuel">
+    <div class="rv z">
+      <svg class="drop" viewBox="0 0 300 360" aria-label="Gota de combustível preenchida a 100%">
+        <defs><clipPath id="dropclip"><path d="M150 20 C150 20 40 150 40 230 a110 110 0 0 0 220 0 C260 150 150 20 150 20z"/></clipPath></defs>
+        <path d="M150 20 C150 20 40 150 40 230 a110 110 0 0 0 220 0 C260 150 150 20 150 20z" fill="#DDE3E8"/>
+        <g clip-path="url(#dropclip)"><rect class="lvl" x="0" y="0" width="300" height="360" fill="#3E9A62"/><path d="M-20 60 Q 40 40 100 60 T 220 60 T 340 60 V 400 H -20z" fill="#2F7F4F" opacity=".35" class="lvl"/></g>
+        <path d="M150 20 C150 20 40 150 40 230 a110 110 0 0 0 220 0 C260 150 150 20 150 20z" fill="none" stroke="#121A22" stroke-width="3"/>
+        <text x="150" y="245" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="64" fill="#fff">100%</text>
+        <text x="150" y="275" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="600" font-size="15" fill="#fff">biocombustível drop-in</text>
+      </svg>
+    </div>
+    <div>
+      <div class="kicker rv">Vitrine da transição energética</div>
+      <h2 class="rv">Um laboratório público de combustível renovável.</h2>
+      <p class="lead rv d1" style="margin-top:1.2rem">Em 2026, o grid inteiro roda com o Be8 BeVant, combustível 100% renovável que a fabricante posiciona como concorrente do HVO, e não do diesel ou do biodiesel. O estudo da própria Anfavea classifica o HVO como utilizável sem restrições nos motores atuais [2][10].</p>
+      <p class="rv d2" style="margin-top:1rem">O estudo Anfavea/BCG projeta a ampliação dos biocombustíveis no diesel para 21% até 2040, ou 25% no cenário acelerado [29]. A agenda já é da entidade. A Copa Truck é onde ela se prova em público, com 40 caminhões, nove etapas e fornecedores do setor observando.</p>
+      <div class="guard rv d3"><b>Regra de redação:</b> a Copa Truck é apresentada como validação técnica de combustível drop-in. Nunca como apoio ao aumento da mistura obrigatória de biodiesel, que hoje está em B15 e tem cronograma legal até B20 em 2030 [30]. Essa bandeira é da Be8 e do agro, não da Anfavea.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 10. POR QUE VIA ANFAVEA ========== -->
+<section class="ch dark" id="anfavea" data-title="Por que via Anfavea">
+  <div class="stripe bot"></div>
+  <div class="wrap">
+    <div class="kicker rv">Brand safety e governança</div>
+    <h2 class="rv">Entrar pela entidade é a única forma de estar na narrativa sem financiar o campeonato das concorrentes.</h2>
+    <div class="pillars">
+      <div class="pillar rv d1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg><div><h3>Neutralidade entre associadas</h3><p>A participação é da Anfavea, sem naming de marca, sem vínculo com resultado esportivo e sem favorecer quem tem equipe de fábrica. Sua marca ganha em presença institucional.</p></div></div>
+      <div class="pillar rv d2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v12H4zM8 21h8"/><path d="M9 11l2 2 4-4"/></svg><div><h3>Controle de narrativa</h3><p>Hoje as marcas já aparecem na categoria por meio de equipes, sem qualquer controle sobre a mensagem. Com a entidade, o conteúdo passa a seguir cláusulas acordadas entre todas as associadas.</p></div></div>
+      <div class="pillar rv d3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M8 12h8"/></svg><div><h3>Cláusula de conteúdo e veto</h3><p>Comitê de conteúdo com as associadas, direito de veto sobre mensagens, proibição de glorificação de velocidade e de infração. O enquadramento que a literatura aponta como decisivo fica sob controle do setor.</p></div></div>
+      <div class="pillar rv d4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19h16M6 19V9l6-5 6 5v10"/><path d="M10 19v-5h4v5"/></svg><div><h3>Plataforma institucional</h3><p>Governo, agro, transportadoras e imprensa especializada no mesmo ambiente, por nove fins de semana. É relação institucional com custo reputacional compartilhado e gestão coletiva.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 11. DESENHO DA PARTICIPAÇÃO ========== -->
+<section class="ch light alt" id="desenho" data-title="Desenho da participação">
+  <div class="wrap">
+    <div class="kicker rv">Desenho da participação</div>
+    <h2 class="rv">Três frentes de ativação, nenhuma delas ligada ao campeonato de marcas.</h2>
+    <div class="tracks">
+      <div class="track rv d1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Estrada segura</h3>
+        <p>Pilotos como embaixadores de segurança viária, com mensagem padronizada pela entidade, no modelo FIA Action for Road Safety.</p>
+        <ul><li>Mensagem fixa em caminhões e transmissão</li><li>Conteúdo sobre distância, descanso e visibilidade</li><li>Sem performance de velocidade na comunicação</li></ul>
+      </div>
+      <div class="track rv d2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"/><path d="M12 8v4l2.5 2.5"/></svg></div>
+        <h3>Descanso e saúde do caminhoneiro</h3>
+        <p>Ponto de apoio da Anfavea nas etapas, voltado à saúde física e emocional, a causa de quase 30% dos acidentes.</p>
+        <ul><li>Aferição de saúde e orientação de sono</li><li>Ponte com o programa Move Brasil</li><li>Dados de perfil do público para o setor</li></ul>
+      </div>
+      <div class="track rv d3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/></svg></div>
+        <h3>Combustível do futuro</h3>
+        <p>Conteúdo técnico sobre o combustível renovável drop-in do grid, com linguagem de engenharia e sem tomar partido na mistura obrigatória.</p>
+        <ul><li>Dados de desempenho e emissões das etapas</li><li>Diálogo com o estudo Anfavea/BCG</li><li>Vitrine para governo e imprensa</li></ul>
+      </div>
+    </div>
+    <div class="rules">
+      <div class="rule rv d1">Sem naming de marca</div>
+      <div class="rule rv d2">Sem vínculo com resultado esportivo</div>
+      <div class="rule rv d3">Comitê de conteúdo com veto das associadas</div>
+      <div class="rule rv d4">Dados abertos de público e desempenho</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 12. OBJEÇÕES RESPONDIDAS ========== -->
+<section class="ch dark alt" id="respostas" data-title="Objeções respondidas">
+  <div class="wrap">
+    <div class="kicker rv">Teste do advogado do diabo</div>
+    <h2 class="rv">As objeções, uma a uma.</h2>
+    <div class="acc rv d1">
+      <details open><summary>“Associar a marca a corrida de caminhão contradiz nosso discurso de segurança.”</summary><div class="body"><b>Resposta</b>A marca já está associada. O que a entrada via Anfavea muda é o enquadramento. Hoje a associação existe sem mensagem. Com a entidade, ela passa a carregar a mensagem de segurança que as próprias marcas defendem há décadas.</div></details>
+      <details><summary>“Evento de velocidade estimula acidentes.”</summary><div class="body"><b>Resposta</b>A literatura mostra efeito quando o conteúdo premia a infração e quando a pessoa participa, não apenas assiste. Não existe estudo sobre corrida de caminhão nem sobre motoristas profissionais. O risco é real, conhecido e gerenciável por regra de conteúdo. Ficar de fora não reduz o risco: apenas deixa a plataforma sem contrapeso.</div></details>
+      <details><summary>“Nossa marca não tem equipe lá. Por que financiar a vitrine das concorrentes?”</summary><div class="body"><b>Resposta</b>Por isso a participação é da entidade e não das marcas, sem naming, sem vínculo com resultado esportivo e com comitê de conteúdo.</div></details>
+      <details><summary>“Biocombustível não é a nossa pauta.”</summary><div class="body"><b>Resposta</b>A pauta é da Anfavea: o estudo Anfavea/BCG projeta a ampliação dos renováveis até 2040. O combustível do grid é drop-in, da família do HVO que o próprio estudo classifica como sem restrições. Não se trata de defender mistura obrigatória, e o documento deixa isso explícito.</div></details>
+      <details><summary>“E se acontecer um acidente na pista com a nossa marca por perto?”</summary><div class="body"><b>Resposta</b>Não haverá marcas das associadas: a presença é institucional. A pista é ambiente controlado, com safety truck e regulamento técnico. E o precedente da FIA mostra que campanhas de segurança convivem com o esporte a motor justamente porque a mensagem está contratada antes do primeiro treino.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 14. OBRIGADO ========== -->
+<section class="ch dark" id="obrigado" data-title="Obrigado">
+  <div class="stripe top"></div>
+  <div class="bgnum" style="font-size:clamp(7rem,20vw,18rem)">2026</div>
+  <div class="wrap" style="text-align:center">
+    <h2 class="rv z" style="font-size:clamp(3.4rem,11vw,9rem);font-weight:800;font-variation-settings:'wdth' 90">Obrigado.</h2>
+    <p class="rv d2" style="margin:2.8rem auto 0;font:500 .9rem 'Archivo',sans-serif;color:#9AA7B3">Anfavea. Copa Truck Be8 BeVant 2026.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  const chapters=[...document.querySelectorAll('.ch')];
+  const nav=document.getElementById('nav');
+  chapters.forEach((c,i)=>{
+    const b=document.createElement('button');
+    b.setAttribute('aria-label',c.dataset.title);
+    b.innerHTML='<span>'+c.dataset.title+'</span>';
+    b.addEventListener('click',()=>c.scrollIntoView({behavior:'smooth'}));
+    nav.appendChild(b);
+  });
+  const dots=[...nav.children];
+
+  // progress
+  const prog=document.getElementById('progress');
+  function onScroll(){
+    const h=document.documentElement;
+    const p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    prog.style.width=(p*100)+'%';
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // active chapter
+  const chObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ const i=chapters.indexOf(e.target); dots.forEach((d,j)=>d.classList.toggle('on',j===i)); e.target.classList.add('in'); } });
+  },{threshold:.45});
+  chapters.forEach(c=>chObs.observe(c));
+
+  // reveal
+  const rvObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); rvObs.unobserve(e.target);} });
+  },{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+
+  // bars
+  const barObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.querySelectorAll('[data-w]').forEach((b,i)=>{ setTimeout(()=>{b.style.width=b.dataset.w+'%';}, i*110); }); barObs.unobserve(e.target);} });
+  },{threshold:.4});
+  document.querySelectorAll('#board,.prop').forEach(el=>barObs.observe(el));
+
+  // counters
+  const cntObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ const el=e.target,end=+el.dataset.count,t0=performance.now(),dur=1500;
+      (function tick(t){ const k=Math.min(1,(t-t0)/dur), v=Math.round(end*(1-Math.pow(1-k,3))); el.textContent=v; if(k<1)requestAnimationFrame(tick); })(t0);
+      cntObs.unobserve(el);} });
+  },{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
+
+  // toggle panes
+  document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.toggle button').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false');});
+    b.classList.add('on');b.setAttribute('aria-selected','true');
+    document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id===b.dataset.pane));
+  }));
+
+  // stakeholder ring
+  const sats=[
+    {t:'Caminhoneiro autônomo',d:'Público primário. Está no autódromo e na transmissão por escolha própria, em um contexto de orgulho profissional. É o momento certo para falar de descanso, saúde e renovação de frota.',i:'<path d="M3 17h18M5 17V9l3-4h8l3 4v8"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>'},
+    {t:'Transportadoras',d:'Decisoras de compra de frota. Para elas, segurança e consumo de combustível são linhas de custo. O conteúdo técnico das etapas conversa diretamente com esse público.',i:'<path d="M3 20h18M4 20V8h16v12M8 20v-6h8v6"/>'},
+    {t:'Governo e reguladores',d:'MME, MT, PRF e agências estaduais acompanham a pauta de combustíveis e de segurança viária. A Copa Truck oferece dados reais de operação com renovável para essa conversa.',i:'<path d="M4 20h16M6 20V9M18 20V9M3 9l9-6 9 6M10 20v-5h4v5"/>'},
+    {t:'Agro e cadeia do biocombustível',d:'A Be8 detém o naming e fornece o combustível. O setor automotivo precisa estar nessa conversa como validador técnico, não como espectador.',i:'<path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/>'},
+    {t:'Imprensa especializada',d:'Autodata, Mecânica Online, O Mecânico e a cobertura esportiva. Nove etapas geram nove janelas de pauta sobre segurança e tecnologia para o setor.',i:'<path d="M4 5h16v14H4zM8 9h8M8 13h5"/>'},
+    {t:'Público geral e famílias',d:'Ingresso a partir de R$ 30 e 43 mil pessoas em Interlagos. A relação afetiva do brasileiro com o caminhão é a porta para uma mensagem de convivência segura na estrada.',i:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4.5 4.5 0 0 1 8 0"/>'}
+  ];
+  const ring=document.getElementById('ring'),txt=document.getElementById('satText');
+  const R=0.47;
+  sats.forEach((s,i)=>{
+    const a=(-90+i*60)*Math.PI/180;
+    const el=document.createElement('div');el.className='sat'+(i===0?' on':'');el.tabIndex=0;el.setAttribute('role','button');
+    el.style.left=(50+R*100*Math.cos(a))+'%';el.style.top=(50+R*100*Math.sin(a))+'%';
+    el.innerHTML='<b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">'+s.i+'</svg></b>'+s.t;
+    const act=()=>{ document.querySelectorAll('.sat').forEach(x=>x.classList.remove('on')); el.classList.add('on'); txt.style.opacity=0; setTimeout(()=>{txt.innerHTML='<b>'+s.t+'</b>'+s.d;txt.style.opacity=1;},200); };
+    el.addEventListener('mouseenter',act);el.addEventListener('click',act);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+    ring.appendChild(el);
+  });
+
+  // keyboard chapter nav
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','PageDown','ArrowRight'].includes(e.key)||['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){
+      const tag=document.activeElement&&document.activeElement.tagName; if(tag==='INPUT'||tag==='TEXTAREA')return;
+      e.preventDefault();
+      const cur=dots.findIndex(d=>d.classList.contains('on'));
+      const next=['ArrowDown','PageDown','ArrowRight'].includes(e.key)?Math.min(chapters.length-1,cur+1):Math.max(0,cur-1);
+      chapters[next].scrollIntoView({behavior:'smooth'});
+    }
+  });
+})();
+</script>
+</body>
+</html>
