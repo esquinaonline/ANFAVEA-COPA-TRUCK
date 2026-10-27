@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Copa Truck 2027. Anfavea</title>
+<title>Copa Truck 2026. Anfavea</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -132,6 +132,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .in .route .line{stroke-dashoffset:0}
 .route .node{opacity:0;transform:scale(.3);transform-origin:center;transform-box:fill-box;transition:opacity .4s,transform .5s cubic-bezier(.3,1.4,.5,1)}
 .in .route .node{opacity:1;transform:scale(1)}
+.route .pulse{transform-origin:center;transform-box:fill-box;animation:pulse 1.8s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(2.6);opacity:0}}
 /* stakeholder ring */
 .ring{position:relative;width:min(100%,460px);aspect-ratio:1;margin:0 auto}
 .ring .core{position:absolute;inset:32%;border-radius:50%;background:var(--farol);display:flex;align-items:center;justify-content:center;text-align:center;font:700 1rem "Archivo",sans-serif;color:var(--asfalto);padding:1rem;line-height:1.15;box-shadow:0 0 0 18px rgba(242,176,30,.1),0 0 0 36px rgba(242,176,30,.05)}
@@ -170,6 +172,21 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .light .toggle button{color:var(--tinta)}
 .light .pane li svg{color:var(--farol-escuro)}
 .light .pane.via li svg{color:var(--alerta)}
+/* etapas restantes */
+.etapas{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.2rem}
+@media (max-width:900px){.etapas{grid-template-columns:1fr}}
+.etapa{background:var(--noite);border:1px solid #2C3B4A;border-radius:6px;padding:1.6rem;position:relative;overflow:hidden}
+.etapa::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--farol)}
+.et-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;font:600 .85rem "Archivo",sans-serif;color:var(--farol);margin-bottom:.8rem;flex-wrap:wrap}
+.et-cd{color:var(--papel);background:rgba(242,176,30,.14);padding:.3rem .7rem;border-radius:999px;font-weight:600}
+.etapa h3{margin-bottom:.6rem;font-size:clamp(1.4rem,2.4vw,1.9rem)}
+.etapa p{font-size:.98rem;color:#C8D1DA}
+.etapa ul{list-style:none;margin-top:1rem;display:grid;gap:.4rem;font:500 .9rem "Archivo",sans-serif}
+.etapa li::before{content:"";display:inline-block;width:14px;height:2px;background:var(--farol);margin-right:.6rem;vertical-align:middle}
+.porque{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.6rem}
+@media (max-width:900px){.porque{grid-template-columns:1fr}}
+.porque div{padding:1rem 1.1rem;border-top:2px solid var(--farol);font-size:.92rem;color:#C8D1DA}
+.porque b{display:block;font:700 .95rem "Archivo",sans-serif;color:var(--papel);margin-bottom:.3rem}
 /* proportions */
 .prop{display:grid;grid-template-columns:repeat(2,1fr);gap:2.4rem}
 @media (max-width:800px){.prop{grid-template-columns:1fr}}
@@ -289,7 +306,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <h1 class="rv in">Copa Truck Be8 BeVant</h1>
     <p class="sub rv in d2">Por que o evento é importante para aumentar a exposição de marca, o envolvimento institucional, a agenda de segurança viária e, principalmente, a pauta ESG (biocombustíveis).</p>
     <div class="meta rv in d3">
-      <div><b style="color:var(--farol)">Temporada 2027</b></div>
+      <div><b style="color:var(--farol)">Etapas finais de 2026: Chapecó, 1º de novembro, e Brasília, 29 de novembro</b></div>
     </div>
   </div>
   <div class="cue"><span>Role para seguir</span><i></i></div>
@@ -301,28 +318,28 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <div class="grid g2">
       <div>
         <div class="kicker rv">O ativo</div>
-        <h2 class="rv">Em 2026: nove etapas, nove estados e um grid inteiro movido a biocombustível.</h2>
-        <p class="lead rv d1" style="margin-top:1.2rem">Lançada em 2017 como sucessora da Fórmula Truck, a Copa Truck rodou em 2026 a temporada mais extensa da sua história, de março a novembro, com os 40 caminhões do grid movidos a 100% de biocombustível e a Be8 como detentora do naming. Essa é a credencial com que a categoria chega a 2027.</p>
+        <h2 class="rv">Nove etapas, nove estados e um grid inteiro movido a biocombustível. Faltam duas.</h2>
+        <p class="lead rv d1" style="margin-top:1.2rem">Lançada em 2017 como sucessora da Fórmula Truck, a Copa Truck rodou em 2026 a temporada mais extensa da sua história, de março a novembro, com os 40 caminhões do grid movidos a 100% de biocombustível e a Be8 como detentora do naming. Sete etapas já foram disputadas. Restam Chapecó, em 1º de novembro, e a final em Brasília, em 29 de novembro: as duas praças inéditas que fecham o calendário.</p>
         <p class="rv d2" style="margin-top:1rem">É um evento popular, com ingressos a partir de R$ 30, e já é usado por fornecedores do setor: a Prometeon é parceira e fornecedora oficial de pneus desde 2024; a Dana patrocina há cinco anos.</p>
-        <div class="src rv d2">Fontes: Autodata, ABC da Comunicação, Mecânica Online, O Mecânico, ABC do ABC. Calendário 2027 ainda não divulgado pela categoria.</div>
+        <div class="src rv d2">Fontes: calendário oficial em copatruck.com.br; Autodata, ABC da Comunicação, Mecânica Online, O Mecânico, ABC do ABC.</div>
       </div>
       <div class="rv z d1">
         <svg class="route" viewBox="0 0 520 420" aria-label="As nove etapas da temporada 2026 ligadas por uma rota">
-          <text x="40" y="30" font-family="Archivo,sans-serif" font-size="13" font-weight="600" fill="#121A22">Temporada 2026</text>
+          <text x="40" y="30" font-family="Archivo,sans-serif" font-size="13" font-weight="600" fill="#121A22">Temporada 2026: sete etapas disputadas, duas restantes</text>
           <path class="line" d="M60 350 C 90 300, 140 320, 160 270 S 230 190, 260 230 S 320 300, 360 250 S 400 150, 440 170 S 470 90, 450 60" fill="none" stroke="#C98C00" stroke-width="3" stroke-linecap="round"/>
           <g fill="#121A22" font-family="Archivo,sans-serif" font-size="12" font-weight="600">
-            <g class="node"><circle cx="60" cy="350" r="11" fill="#F2B01E"/><text x="60" y="354" text-anchor="middle">1</text></g>
-            <g class="node" style="transition-delay:.2s"><circle cx="120" cy="305" r="11" fill="#F2B01E"/><text x="120" y="309" text-anchor="middle">2</text></g>
-            <g class="node" style="transition-delay:.4s"><circle cx="160" cy="270" r="11" fill="#F2B01E"/><text x="160" y="274" text-anchor="middle">3</text></g>
-            <g class="node" style="transition-delay:.6s"><circle cx="215" cy="205" r="11" fill="#F2B01E"/><text x="215" y="209" text-anchor="middle">4</text></g>
-            <g class="node" style="transition-delay:.8s"><circle cx="260" cy="230" r="11" fill="#F2B01E"/><text x="260" y="234" text-anchor="middle">5</text></g>
-            <g class="node" style="transition-delay:1s"><circle cx="318" cy="290" r="11" fill="#F2B01E"/><text x="318" y="294" text-anchor="middle">6</text></g>
-            <g class="node" style="transition-delay:1.2s"><circle cx="360" cy="250" r="11" fill="#F2B01E"/><text x="360" y="254" text-anchor="middle">7</text></g>
-            <g class="node" style="transition-delay:1.4s"><circle cx="420" cy="160" r="11" fill="#F2B01E"/><text x="420" y="164" text-anchor="middle">8</text></g>
-            <g class="node" style="transition-delay:1.6s"><circle cx="450" cy="60" r="11" fill="#F2B01E"/><text x="450" y="64" text-anchor="middle">9</text></g>
+            <g class="node"><circle cx="60" cy="350" r="11" fill="#B9C4CE"/><text x="60" y="354" text-anchor="middle">1</text></g>
+            <g class="node" style="transition-delay:.2s"><circle cx="120" cy="305" r="11" fill="#B9C4CE"/><text x="120" y="309" text-anchor="middle">2</text></g>
+            <g class="node" style="transition-delay:.4s"><circle cx="160" cy="270" r="11" fill="#B9C4CE"/><text x="160" y="274" text-anchor="middle">3</text></g>
+            <g class="node" style="transition-delay:.6s"><circle cx="215" cy="205" r="11" fill="#B9C4CE"/><text x="215" y="209" text-anchor="middle">4</text></g>
+            <g class="node" style="transition-delay:.8s"><circle cx="260" cy="230" r="11" fill="#B9C4CE"/><text x="260" y="234" text-anchor="middle">5</text></g>
+            <g class="node" style="transition-delay:1s"><circle cx="318" cy="290" r="11" fill="#B9C4CE"/><text x="318" y="294" text-anchor="middle">6</text></g>
+            <g class="node" style="transition-delay:1.2s"><circle cx="360" cy="250" r="11" fill="#B9C4CE"/><text x="360" y="254" text-anchor="middle">7</text></g>
+            <g class="node next" style="transition-delay:1.4s"><circle class="pulse" cx="420" cy="160" r="11" fill="none" stroke="#C98C00" stroke-width="2"/><circle cx="420" cy="160" r="11" fill="#F2B01E"/><text x="420" y="164" text-anchor="middle">8</text><text x="404" y="145" text-anchor="end" font-size="11" fill="#121A22">Chapecó, 01/11</text></g>
+            <g class="node next" style="transition-delay:1.6s"><circle class="pulse" cx="450" cy="60" r="11" fill="none" stroke="#C98C00" stroke-width="2"/><circle cx="450" cy="60" r="11" fill="#F2B01E"/><text x="450" y="64" text-anchor="middle">9</text><text x="432" y="64" text-anchor="end" font-size="11" fill="#121A22">Brasília, 29/11 (final)</text></g>
           </g>
           <text x="60" y="395" font-family="Archivo,sans-serif" font-size="12" fill="#6E7A85">Março</text>
-          <text x="420" y="40" font-family="Archivo,sans-serif" font-size="12" fill="#6E7A85">Novembro</text>
+          <text x="470" y="30" font-family="Archivo,sans-serif" font-size="12" fill="#6E7A85">Nov.</text>
         </svg>
       </div>
     </div>
@@ -333,6 +350,37 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="stat rv d4"><div class="n"><small style="margin:0 .1em 0 0">R$</small><span data-count="30">0</span></div><div class="l">ingresso inicial</div><div class="s">evento de público popular</div></div>
       <div class="stat rv d5"><div class="n"><span data-count="2">0</span><small>mi+</small></div><div class="l">inscritos no canal que transmite a temporada</div><div class="s">Acelerados; grade de TV a confirmar</div></div>
     </div>
+  </div>
+</section>
+
+<!-- ========== 3b. AS DUAS ETAPAS RESTANTES ========== -->
+<section class="ch dark" id="etapas" data-title="As duas etapas restantes">
+  <div class="stripe top"></div>
+  <div class="bgnum">2</div>
+  <div class="wrap">
+    <div class="kicker rv">A janela de entrada</div>
+    <h2 class="rv">Duas etapas restantes. Duas praças inéditas. Uma final na capital federal.</h2>
+    <p class="lead rv d1" style="margin-top:1.2rem">A temporada 2026 fecha com as duas estreias que faltavam no calendário. É a chance de entrar agora, com custo e risco de piloto, e chegar a 2027 com o formato de participação já testado.</p>
+    <div class="etapas">
+      <div class="etapa rv l d1">
+        <div class="et-head"><span class="et-n">8ª etapa</span><span class="et-cd" data-date="2026-11-01">1º de novembro</span></div>
+        <h3>Chapecó, Santa Catarina</h3>
+        <p>Estreia da categoria no Oeste catarinense, polo agroindustrial e de transporte rodoviário. É o público de transportadoras e produtores reunido em casa: o lugar certo para a conversa sobre combustível renovável e renovação de frota no território do agro.</p>
+        <ul><li>Praça inédita, sem histórico de nenhuma marca</li><li>Ativação de descanso e saúde do caminhoneiro</li><li>Conteúdo técnico sobre o combustível do grid</li></ul>
+      </div>
+      <div class="etapa rv r d2">
+        <div class="et-head"><span class="et-n">9ª etapa, final</span><span class="et-cd" data-date="2026-11-29">29 de novembro</span></div>
+        <h3>Brasília, Distrito Federal</h3>
+        <p>A decisão da temporada, com títulos em jogo, a poucos quilômetros de MME, Ministério dos Transportes, PRF, ANTT e Congresso. É a etapa de maior concentração de imprensa e de transmissão, e a mais adequada à mensagem institucional de segurança viária e ao diálogo sobre a política de biocombustíveis.</p>
+        <ul><li>Primeira corrida da categoria na capital</li><li>Pilotos embaixadores de segurança viária na final</li><li>Convite a governo e reguladores em nome do setor</li></ul>
+      </div>
+    </div>
+    <div class="porque rv d3">
+      <div><b>Custo de piloto</b>Duas etapas para testar governança, conteúdo e ativações antes de uma temporada completa.</div>
+      <div><b>Chegada em 2027 com formato pronto</b>A participação na temporada seguinte parte de uma experiência real, não de uma proposta no papel.</div>
+      <div><b>Final como vitrine</b>Brasília concentra, num fim de semana, os públicos que o setor leva meses para reunir.</div>
+    </div>
+    <div class="src rv d3">Fonte: calendário oficial da Copa Truck 2026 (copatruck.com.br/calendario-2026).</div>
   </div>
 </section>
 
@@ -376,7 +424,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="reason rv d3">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/><path d="M9 15a3 3 0 0 0 3 3"/></svg>
         <h3>O combustível do grid é a pauta da Anfavea</h3>
-        <p>Em 2026, os 40 caminhões do grid rodaram com 100% de biocombustível drop-in em nove etapas. O combustível renovável já está validado na pista, e 2027 é a temporada para o setor assumir essa narrativa.</p>
+        <p>Em 2026, os 40 caminhões do grid rodaram com 100% de biocombustível drop-in em nove etapas. O combustível renovável já está validado na pista. As duas etapas finais, Chapecó e Brasília, são a porta de entrada para o setor assumir essa narrativa.</p>
       </div>
     </div>
   </div>
@@ -567,6 +615,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <details open><summary>“Associar a marca a corrida de caminhão contradiz nosso discurso de segurança.”</summary><div class="body"><b>Resposta</b>A marca já está associada. O que a entrada via Anfavea muda é o enquadramento. Hoje a associação existe sem mensagem. Com a entidade, ela passa a carregar a mensagem de segurança que as próprias marcas defendem há décadas.</div></details>
       <details><summary>“Evento de velocidade estimula acidentes.”</summary><div class="body"><b>Resposta</b>A literatura mostra efeito quando o conteúdo premia a infração e quando a pessoa participa, não apenas assiste. Não existe estudo sobre corrida de caminhão nem sobre motoristas profissionais. O risco é real, conhecido e gerenciável por regra de conteúdo. Ficar de fora não reduz o risco: apenas deixa o evento sem contrapeso.</div></details>
       <details><summary>“Nossa marca não tem equipe lá. Por que financiar a vitrine das concorrentes?”</summary><div class="body"><b>Resposta</b>Por isso a participação é da entidade e não das marcas, sem naming, sem vínculo com resultado esportivo e com comitê de conteúdo.</div></details>
+      <details><summary>“A temporada está no fim. Vale entrar agora?”</summary><div class="body"><b>Resposta</b>Justamente por isso. Restam duas etapas, e são as duas praças inéditas do calendário: Chapecó, em 1º de novembro, e a final em Brasília, em 29 de novembro. Entrar agora significa testar o formato com custo e risco de piloto, chegar à final com a imprensa, o governo e a transmissão concentrados na capital, e abrir 2027 com a participação já desenhada em vez de começar do zero.</div></details>
       <details><summary>“Biocombustível não é a nossa pauta.”</summary><div class="body"><b>Resposta</b>A pauta é da Anfavea: o estudo Anfavea/BCG projeta a ampliação dos renováveis até 2040. O combustível do grid é drop-in, da família do HVO que o próprio estudo classifica como sem restrições. Não se trata de defender mistura obrigatória, e o documento deixa isso explícito.</div></details>
       <details><summary>“E se acontecer um acidente na pista com a nossa marca por perto?”</summary><div class="body"><b>Resposta</b>Não haverá marcas das associadas: a presença é institucional. A pista é ambiente controlado, com safety truck e regulamento técnico. E o precedente da FIA mostra que campanhas de segurança convivem com o esporte a motor justamente porque a mensagem está contratada antes do primeiro treino.</div></details>
     </div>
@@ -579,7 +628,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <div class="bgnum" style="font-size:clamp(7rem,20vw,18rem)">2026</div>
   <div class="wrap" style="text-align:center">
     <h2 class="rv z" style="font-size:clamp(3.4rem,11vw,9rem);font-weight:800;font-variation-settings:'wdth' 90">Obrigado.</h2>
-    <p class="rv d2" style="margin:2.8rem auto 0;font:500 .9rem 'Archivo',sans-serif;color:#9AA7B3">Anfavea. Copa Truck, temporada 2027.</p>
+    <p class="rv d2" style="margin:2.8rem auto 0;font:500 .9rem 'Archivo',sans-serif;color:#9AA7B3">Anfavea. Copa Truck 2026: Chapecó e Brasília.</p>
   </div>
 </section>
 
@@ -657,6 +706,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     const act=()=>{ document.querySelectorAll('.sat').forEach(x=>x.classList.remove('on')); el.classList.add('on'); txt.style.opacity=0; setTimeout(()=>{txt.innerHTML='<b>'+s.t+'</b>'+s.d;txt.style.opacity=1;},200); };
     el.addEventListener('mouseenter',act);el.addEventListener('click',act);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
     ring.appendChild(el);
+  });
+
+  // countdown for remaining stages
+  document.querySelectorAll('.et-cd[data-date]').forEach(el=>{
+    const d=new Date(el.dataset.date+'T12:00:00-03:00'), now=new Date();
+    const days=Math.ceil((d-now)/86400000);
+    if(days>1) el.textContent=el.textContent+' (faltam '+days+' dias)';
+    else if(days===1) el.textContent=el.textContent+' (amanhã)';
+    else if(days===0) el.textContent=el.textContent+' (hoje)';
   });
 
   // keyboard chapter nav
